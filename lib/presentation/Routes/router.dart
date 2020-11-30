@@ -8,15 +8,15 @@ import '../../splash.dart';
 @MaterialAutoRouter(
     generateNavigationHelperExtension: true,
     routes: <AutoRoute>[
-      MaterialRoute(
-        page: SplashPage,
-      ),
+      MaterialRoute(page: SplashPage, initial: true),
       MaterialRoute(
         page: SignInPage,
       ),
       MaterialRoute(
         page: RegisterPage,
       ),
-      MaterialRoute(page: HomePage, initial: true),
+      MaterialRoute(
+        page: HomePage,
+      ),
     ])
 class $Router {}

@@ -15,10 +15,10 @@ import '../Auth/sign_in_page.dart';
 import '../Home/homepage.dart';
 
 class Routes {
-  static const String splashPage = '/splash-page';
+  static const String splashPage = '/';
   static const String signInPage = '/sign-in-page';
   static const String registerPage = '/register-page';
-  static const String homePage = '/';
+  static const String homePage = '/home-page';
   static const all = <String>{
     splashPage,
     signInPage,

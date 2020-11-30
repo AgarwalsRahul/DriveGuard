@@ -1,3 +1,5 @@
+import 'package:DriveGuard/presentation/Routes/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatelessWidget {
@@ -165,7 +167,9 @@ class SignInPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   vertical: MediaQuery.of(context).size.height * 0.0123),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  ExtendedNavigator.of(context).replace(Routes.registerPage);
+                },
                 child: Text(
                   "Create account",
                   textAlign: TextAlign.center,
@@ -178,7 +182,7 @@ class SignInPage extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.0123,
+              height: MediaQuery.of(context).size.height * 0.003,
             ),
             Center(
               child: Row(
