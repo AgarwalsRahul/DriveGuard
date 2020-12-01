@@ -68,6 +68,7 @@ class HospitalInfo extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Buttons(
+                        onPressed: () {},
                         text: "Edit",
                         icon: Icon(
                           Icons.edit,
@@ -79,6 +80,7 @@ class HospitalInfo extends StatelessWidget {
                         width: 20.0,
                       ),
                       Buttons(
+                        onPressed: () {},
                         text: "Add",
                         icon: Icon(
                           Icons.add,

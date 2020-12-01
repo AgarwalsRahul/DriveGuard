@@ -14,6 +14,7 @@ import 'application/auth/auth_bloc/auth_bloc.dart';
 import 'domain/auth/auth_facade.dart';
 import 'infrastructure/auth/auth_facade_firebase.dart';
 import 'infrastructure/core/firebase_injection_module.dart';
+import 'application/auth/sign_in_form_bloc/sign_in_form_bloc.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -30,6 +31,7 @@ GetIt $initGetIt(
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectionModule.googleSignIn);
   gh.lazySingleton<AuthFacade>(
       () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
+  gh.factory<SignInFormBloc>(() => SignInFormBloc(get<AuthFacade>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<AuthFacade>()));
   return get;
 }

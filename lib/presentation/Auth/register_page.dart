@@ -1,233 +1,79 @@
-import 'package:DriveGuard/presentation/Routes/router.gr.dart';
+import 'package:DriveGuard/presentation/Auth/widgets/register_form.dart';
+import 'package:DriveGuard/presentation/Auth/widgets/sign_in_option_widget.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../application/auth/auth_bloc/auth_bloc.dart';
+import '../../application/auth/sign_in_form_bloc/sign_in_form_bloc.dart';
+import '../Routes/router.gr.dart';
+import 'widgets/auth_buttons.dart';
+import 'widgets/container_widget.dart';
+import 'widgets/drive_guard_image.dart';
+import 'widgets/flushbar_widget.dart';
+import 'widgets/heading_widget.dart';
 
 class RegisterPage extends StatelessWidget {
+  final BuildContext ctx;
+
+  const RegisterPage({Key key, this.ctx}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SingleChildScrollView(
-      child: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.0826,
-                right: MediaQuery.of(context).size.width * 0.0853,
-                top: MediaQuery.of(context).size.height * 0.037,
-              ),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.086,
-                width: MediaQuery.of(context).size.width * 0.832,
-                alignment: Alignment.center,
-                child: Text(
-                  "Create Account",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: "Raleway-Bold",
-                      fontWeight: FontWeight.bold,
-                      fontSize: 36),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.266,
-                right: MediaQuery.of(context).size.width * 0.266,
-                top: MediaQuery.of(context).size.height * 0.0123,
-                bottom: MediaQuery.of(context).size.height * 0.027,
-              ),
-              child: Container(
-                alignment: Alignment.center,
-                // width: MediaQuery.of(context).size.width * 0.466,
-                height: MediaQuery.of(context).size.height * 0.195,
-                child: Image.asset(
-                  'assets/images/DriveGuard1.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            //
-            Padding(
-              padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.0853,
-                  right: MediaQuery.of(context).size.width * 0.0853,
-                  top: MediaQuery.of(context).size.height * 0.0270),
-              child: Container(
-                alignment: Alignment.center,
-                child: Form(
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context).size.height * 0.046),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                              hintText: "User ID",
-                              hintStyle: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w300),
-                              prefixIcon: Icon(
-                                Icons.person_outline,
-                                color: Color.fromRGBO(150, 167, 175, 1),
-                                size: 25,
-                              )),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                            bottom: MediaQuery.of(context).size.height * 0.046),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                              hintText: "Mail ID",
-                              hintStyle: TextStyle(
-                                  fontSize: 18, fontWeight: FontWeight.w300),
-                              prefixIcon: Icon(
-                                Icons.mail,
-                                color: Color.fromRGBO(150, 167, 175, 1),
-                                size: 25,
-                              )),
-                        ),
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            hintText: "Password",
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                Icons.remove_red_eye,
-                                color: Color.fromRGBO(150, 167, 175, 1),
-                              ),
-                              onPressed: () {},
-                            ),
-                            hintStyle: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w300),
-                            prefixIcon: Icon(
-                              Icons.lock,
-                              color: Color.fromRGBO(150, 167, 175, 1),
-                              size: 25,
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.036,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery.of(context).size.width * 0.154),
-              child: Container(
-                alignment: Alignment.center,
-                child: FlatButton(
-                  padding: EdgeInsets.symmetric(vertical: 10.0),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0)),
-                  color: Color.fromRGBO(8, 131, 44, 0.5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Continue",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Theme.of(context).accentColor,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: "Nova Oval"),
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.064,
-                      ),
-                      Icon(
-                        Icons.arrow_right_alt_rounded,
-                        color: Theme.of(context).accentColor,
-                        size: 30,
-                      ),
-                    ],
-                  ),
-                  onPressed: () {},
-                ),
-              ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.symmetric(
-                  vertical: MediaQuery.of(context).size.height * 0.0123),
-              child: InkWell(
-                onTap: () {
-                  ExtendedNavigator.of(context).replace(Routes.signInPage);
+    return BlocProvider.value(
+      value: BlocProvider.of<SignInFormBloc>(ctx),
+      child: BlocListener<SignInFormBloc, SignInFormState>(
+          listener: (context, state) {
+            state.authFailuresOrSuccessOption.fold(
+              () {},
+              (either) => either.fold(
+                (failure) {
+                  flushBar(failure, context);
                 },
-                child: Text(
-                  "Have an account?",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Color.fromRGBO(150, 167, 175, 1),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                      fontFamily: "Nova Oval"),
-                ),
+                (_) {
+                  context
+                      .read<AuthBloc>()
+                      .add(const AuthEvent.checkedAuthStatus());
+                },
               ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.symmetric(
-                  vertical: MediaQuery.of(context).size.height * 0.0123),
-              child: Text(
-                "Sign up with",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Theme.of(context).accentColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                    fontFamily: "Nova Oval"),
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.0123,
-            ),
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+            );
+          },
+          child: Scaffold(
+              body: SingleChildScrollView(
+            child: Center(
+              child: Column(
                 children: [
-                  InkWell(
-                    onTap: () {},
-                    child: Image.asset(
-                      'assets/images/google.png',
-                      height: MediaQuery.of(context).size.width * 0.1,
-                      width: MediaQuery.of(context).size.width * 0.1,
-                    ),
+                  HeadingWidget(text: "Create Account"),
+                  DriveGuardImage(),
+                  RegisterForm(ctx: ctx),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.036,
+                  ),
+                  AuthButtons(
+                    text: "Continue",
+                    icon: Icons.arrow_right_alt_rounded,
+                    onPressed: () {
+                      ctx.read<SignInFormBloc>().add(const SignInFormEvent
+                          .registerWithEmaiAndPasswordPressed());
+                    },
+                  ),
+                  ContainerWidget(
+                    text: "Have an account?",
+                    onTap: () {
+                      ExtendedNavigator.of(context).replace(Routes.signInPage);
+                    },
+                  ),
+                  ContainerWidget(
+                    text: "Sign up with",
+                    onTap: null,
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.05,
+                    height: MediaQuery.of(context).size.height * 0.0123,
                   ),
-                  InkWell(
-                    onTap: () {},
-                    child: Image.asset(
-                      'assets/images/fb.png',
-                      height: MediaQuery.of(context).size.width * 0.15,
-                      width: MediaQuery.of(context).size.width * 0.15,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.05,
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Image.asset(
-                      'assets/images/twitter.png',
-                      height: MediaQuery.of(context).size.width * 0.1,
-                      width: MediaQuery.of(context).size.width * 0.1,
-                    ),
-                  ),
+                  SignInOptionWidget()
                 ],
               ),
-            )
-          ],
-        ),
-      ),
-    ));
+            ),
+          ))),
+    );
   }
 }

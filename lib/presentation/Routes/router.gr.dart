@@ -52,8 +52,14 @@ class Router extends RouterBase {
       );
     },
     RegisterPage: (data) {
+      final args = data.getArgs<RegisterPageArguments>(
+        orElse: () => RegisterPageArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => RegisterPage(),
+        builder: (context) => RegisterPage(
+          key: args.key,
+          ctx: args.ctx,
+        ),
         settings: data,
       );
     },
@@ -75,7 +81,25 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
 
-  Future<dynamic> pushRegisterPage() => push<dynamic>(Routes.registerPage);
+  Future<dynamic> pushRegisterPage({
+    Key key,
+    BuildContext ctx,
+  }) =>
+      push<dynamic>(
+        Routes.registerPage,
+        arguments: RegisterPageArguments(key: key, ctx: ctx),
+      );
 
   Future<dynamic> pushHomePage() => push<dynamic>(Routes.homePage);
+}
+
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
+
+/// RegisterPage arguments holder class
+class RegisterPageArguments {
+  final Key key;
+  final BuildContext ctx;
+  RegisterPageArguments({this.key, this.ctx});
 }

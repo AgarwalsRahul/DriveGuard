@@ -68,11 +68,13 @@ class SOSInfo extends StatelessWidget {
                           size: 14,
                           color: Theme.of(context).accentColor,
                         ),
+                        onPressed: () {},
                       ),
                       SizedBox(
                         width: 20.0,
                       ),
                       Buttons(
+                        onPressed: () {},
                         text: "Add",
                         icon: Icon(
                           Icons.add,

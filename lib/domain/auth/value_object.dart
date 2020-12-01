@@ -41,3 +41,42 @@ class Name extends ValueObjects<String> {
 
   const Name._(this.value);
 }
+
+class VehcileNumber extends ValueObjects<String> {
+  final Either<ValueFailure<String>, String> value;
+
+  factory VehcileNumber(String input) {
+    assert(input != null);
+    return VehcileNumber._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const VehcileNumber._(this.value);
+}
+
+class PhoneNumber extends ValueObjects<String> {
+  final Either<ValueFailure<String>, String> value;
+
+  factory PhoneNumber(String input) {
+    assert(input != null);
+    return PhoneNumber._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const PhoneNumber._(this.value);
+}
+
+class Address extends ValueObjects<String> {
+  final Either<ValueFailure<String>, String> value;
+
+  factory Address(String input) {
+    assert(input != null);
+    return Address._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  const Address._(this.value);
+}
