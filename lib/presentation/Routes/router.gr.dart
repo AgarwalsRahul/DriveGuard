@@ -13,15 +13,18 @@ import '../../splash.dart';
 import '../Auth/register_page.dart';
 import '../Auth/sign_in_page.dart';
 import '../Home/homepage.dart';
+import '../Profile/profile_page.dart';
 
 class Routes {
   static const String splashPage = '/';
   static const String signInPage = '/sign-in-page';
+  static const String profilePage = '/profile-page';
   static const String registerPage = '/register-page';
   static const String homePage = '/home-page';
   static const all = <String>{
     splashPage,
     signInPage,
+    profilePage,
     registerPage,
     homePage,
   };
@@ -33,6 +36,7 @@ class Router extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.splashPage, page: SplashPage),
     RouteDef(Routes.signInPage, page: SignInPage),
+    RouteDef(Routes.profilePage, page: ProfilePage),
     RouteDef(Routes.registerPage, page: RegisterPage),
     RouteDef(Routes.homePage, page: HomePage),
   ];
@@ -48,6 +52,12 @@ class Router extends RouterBase {
     SignInPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => SignInPage(),
+        settings: data,
+      );
+    },
+    ProfilePage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ProfilePage(),
         settings: data,
       );
     },
@@ -80,6 +90,8 @@ extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushSplashPage() => push<dynamic>(Routes.splashPage);
 
   Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
+
+  Future<dynamic> pushProfilePage() => push<dynamic>(Routes.profilePage);
 
   Future<dynamic> pushRegisterPage({
     Key key,

@@ -20,7 +20,8 @@ class _$UserTearOff {
       @nullable Name userName,
       @nullable VehcileNumber vehcileNumber,
       @nullable Address address,
-      @nullable PhoneNumber phoneNumber}) {
+      @nullable PhoneNumber phoneNumber,
+      @nullable PhotoUrl photoUrl}) {
     return _User(
       id: id,
       emailAddress: emailAddress,
@@ -28,6 +29,7 @@ class _$UserTearOff {
       vehcileNumber: vehcileNumber,
       address: address,
       phoneNumber: phoneNumber,
+      photoUrl: photoUrl,
     );
   }
 }
@@ -48,6 +50,8 @@ mixin _$User {
   Address get address;
   @nullable
   PhoneNumber get phoneNumber;
+  @nullable
+  PhotoUrl get photoUrl;
 
   $UserCopyWith<User> get copyWith;
 }
@@ -62,7 +66,8 @@ abstract class $UserCopyWith<$Res> {
       @nullable Name userName,
       @nullable VehcileNumber vehcileNumber,
       @nullable Address address,
-      @nullable PhoneNumber phoneNumber});
+      @nullable PhoneNumber phoneNumber,
+      @nullable PhotoUrl photoUrl});
 }
 
 /// @nodoc
@@ -81,6 +86,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object vehcileNumber = freezed,
     Object address = freezed,
     Object phoneNumber = freezed,
+    Object photoUrl = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
@@ -95,6 +101,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber as PhoneNumber,
+      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as PhotoUrl,
     ));
   }
 }
@@ -110,7 +117,8 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       @nullable Name userName,
       @nullable VehcileNumber vehcileNumber,
       @nullable Address address,
-      @nullable PhoneNumber phoneNumber});
+      @nullable PhoneNumber phoneNumber,
+      @nullable PhotoUrl photoUrl});
 }
 
 /// @nodoc
@@ -130,6 +138,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object vehcileNumber = freezed,
     Object address = freezed,
     Object phoneNumber = freezed,
+    Object photoUrl = freezed,
   }) {
     return _then(_User(
       id: id == freezed ? _value.id : id as String,
@@ -144,21 +153,24 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       phoneNumber: phoneNumber == freezed
           ? _value.phoneNumber
           : phoneNumber as PhoneNumber,
+      photoUrl: photoUrl == freezed ? _value.photoUrl : photoUrl as PhotoUrl,
     ));
   }
 }
 
 /// @nodoc
-class _$_User implements _User {
+class _$_User extends _User {
   const _$_User(
       {@required this.id,
       @required this.emailAddress,
       @nullable this.userName,
       @nullable this.vehcileNumber,
       @nullable this.address,
-      @nullable this.phoneNumber})
+      @nullable this.phoneNumber,
+      @nullable this.photoUrl})
       : assert(id != null),
-        assert(emailAddress != null);
+        assert(emailAddress != null),
+        super._();
 
   @override
   final String id;
@@ -176,10 +188,13 @@ class _$_User implements _User {
   @override
   @nullable
   final PhoneNumber phoneNumber;
+  @override
+  @nullable
+  final PhotoUrl photoUrl;
 
   @override
   String toString() {
-    return 'User(id: $id, emailAddress: $emailAddress, userName: $userName, vehcileNumber: $vehcileNumber, address: $address, phoneNumber: $phoneNumber)';
+    return 'User(id: $id, emailAddress: $emailAddress, userName: $userName, vehcileNumber: $vehcileNumber, address: $address, phoneNumber: $phoneNumber, photoUrl: $photoUrl)';
   }
 
   @override
@@ -202,7 +217,10 @@ class _$_User implements _User {
                     .equals(other.address, address)) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 const DeepCollectionEquality()
-                    .equals(other.phoneNumber, phoneNumber)));
+                    .equals(other.phoneNumber, phoneNumber)) &&
+            (identical(other.photoUrl, photoUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.photoUrl, photoUrl)));
   }
 
   @override
@@ -213,21 +231,24 @@ class _$_User implements _User {
       const DeepCollectionEquality().hash(userName) ^
       const DeepCollectionEquality().hash(vehcileNumber) ^
       const DeepCollectionEquality().hash(address) ^
-      const DeepCollectionEquality().hash(phoneNumber);
+      const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(photoUrl);
 
   @override
   _$UserCopyWith<_User> get copyWith =>
       __$UserCopyWithImpl<_User>(this, _$identity);
 }
 
-abstract class _User implements User {
+abstract class _User extends User {
+  const _User._() : super._();
   const factory _User(
       {@required String id,
       @required EmailAddress emailAddress,
       @nullable Name userName,
       @nullable VehcileNumber vehcileNumber,
       @nullable Address address,
-      @nullable PhoneNumber phoneNumber}) = _$_User;
+      @nullable PhoneNumber phoneNumber,
+      @nullable PhotoUrl photoUrl}) = _$_User;
 
   @override
   String get id;
@@ -245,6 +266,9 @@ abstract class _User implements User {
   @override
   @nullable
   PhoneNumber get phoneNumber;
+  @override
+  @nullable
+  PhotoUrl get photoUrl;
   @override
   _$UserCopyWith<_User> get copyWith;
 }

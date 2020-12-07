@@ -1,10 +1,13 @@
 import 'package:DriveGuard/domain/auth/value_object.dart';
+import 'package:DriveGuard/domain/core/failures.dart';
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user.freezed.dart';
 
 @freezed
-abstract class User with _$User {
+abstract class User implements _$User {
+  const User._();
   const factory User({
     @required String id,
     @required EmailAddress emailAddress,
@@ -12,5 +15,21 @@ abstract class User with _$User {
     @nullable VehcileNumber vehcileNumber,
     @nullable Address address,
     @nullable PhoneNumber phoneNumber,
+    @nullable PhotoUrl photoUrl,
   }) = _User;
+
+  factory User.empty() {
+    return User(id: "", emailAddress: EmailAddress(""), photoUrl: PhotoUrl(""));
+  }
+  Option<ValueFailure<dynamic>> get failureOption {
+    return userName.failureOrUnit
+        .andThen(address.failureOrUnit)
+        .andThen(phoneNumber.failureOrUnit)
+        .andThen(emailAddress.failureOrUnit)
+        .andThen(vehcileNumber.failureOrUnit)
+        .fold(
+          (f) => some(f),
+          (_) => none(),
+        );
+  }
 }

@@ -30,9 +30,7 @@ class RegisterPage extends StatelessWidget {
                   flushBar(failure, context);
                 },
                 (_) {
-                  context
-                      .read<AuthBloc>()
-                      .add(const AuthEvent.checkedAuthStatus());
+                  ExtendedNavigator.of(context).pushProfilePage();
                 },
               ),
             );

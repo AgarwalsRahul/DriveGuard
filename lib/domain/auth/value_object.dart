@@ -80,3 +80,15 @@ class Address extends ValueObjects<String> {
 
   const Address._(this.value);
 }
+
+class PhotoUrl extends ValueObjects<String> {
+  final Either<ValueFailure<String>, String> value;
+
+  // static const maxLength = 4;
+
+  factory PhotoUrl(String input) {
+    assert(input != null);
+    return PhotoUrl._(validateStringNotEmpty(input));
+  }
+  PhotoUrl._(this.value);
+}
