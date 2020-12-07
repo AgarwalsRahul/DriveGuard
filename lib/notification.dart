@@ -12,15 +12,15 @@ class _AlertState extends State<Alert> {
     _fcm.configure(
         onMessage: (Map<String,dynamic>message)async{
           print('onMessage:$message');
-          //Navigator.popAndPushNamed(context, Home.id);
+          
         },
         onLaunch: (Map<String,dynamic>message)async{
           print('onLaunch:$message');
-          //Navigator.popAndPushNamed(context, Home.id);
+         
         },
         onResume: (Map<String,dynamic>message)async{
           print('onResume:$message');
-          //Navigator.popAndPushNamed(context, Home.id);
+         
         }
     );
   }
@@ -29,10 +29,9 @@ class _AlertState extends State<Alert> {
       print("TOKEN:$token");
     });
     @override void initState() {
-      // TODO: implement initState
+      
       super.initState();
-      // _configFirebaseListeners();
-      // _getToken();
+      
 
     }
   }
