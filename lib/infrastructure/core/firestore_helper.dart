@@ -15,6 +15,7 @@ extension FirestoreX on FirebaseFirestore {
 
 extension DocumentReferenceX on DocumentReference {
   CollectionReference get profileCollection => collection('profile');
+  CollectionReference get hospitalInfoCollection => collection('hospitals');
 }
 
 Future<User> getUser() async {

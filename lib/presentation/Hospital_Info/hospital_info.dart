@@ -2,7 +2,7 @@ import 'package:DriveGuard/presentation/Hospital_Info/widgets/hospital_view.dart
 import 'package:DriveGuard/presentation/SOS_info/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
-class HospitalInfo extends StatelessWidget {
+class HospitalInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
