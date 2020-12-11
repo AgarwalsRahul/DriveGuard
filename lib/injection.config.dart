@@ -17,6 +17,8 @@ import 'infrastructure/auth/auth_facade_firebase.dart';
 import 'infrastructure/core/firebase_injection_module.dart';
 import 'domain/Hospital_Info/hospital_info_repo.dart';
 import 'infrastructure/HospitalInfo/hospital_info_repo.dart';
+import 'application/hospital_info/hospital_info_actor_bloc/hospitalinfoactor_bloc.dart';
+import 'application/hospital_info/hospital_info_watcher_bloc/hospitalinfowatcher_bloc.dart';
 import 'domain/profile/iProfile_repository.dart';
 import 'application/profile/profile_bloc/profile_bloc.dart';
 import 'infrastructure/profile/profile_repository.dart';
@@ -38,6 +40,10 @@ GetIt $initGetIt(
   gh.lazySingleton<GoogleSignIn>(() => firebaseInjectionModule.googleSignIn);
   gh.lazySingleton<HospitalInfoRepo>(
       () => HospitalInfoRepository(get<FirebaseFirestore>()));
+  gh.factory<HospitalinfoactorBloc>(
+      () => HospitalinfoactorBloc(get<HospitalInfoRepo>()));
+  gh.factory<HospitalinfowatcherBloc>(
+      () => HospitalinfowatcherBloc(get<HospitalInfoRepo>()));
   gh.lazySingleton<IProfileRepository>(() =>
       ProfileRepository(get<FirebaseFirestore>(), get<FirebaseStorage>()));
   gh.factory<ProfileBloc>(() => ProfileBloc(get<IProfileRepository>()));
