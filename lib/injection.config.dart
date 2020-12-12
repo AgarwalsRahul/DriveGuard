@@ -18,6 +18,7 @@ import 'infrastructure/core/firebase_injection_module.dart';
 import 'domain/Hospital_Info/hospital_info_repo.dart';
 import 'infrastructure/HospitalInfo/hospital_info_repo.dart';
 import 'application/hospital_info/hospital_info_actor_bloc/hospitalinfoactor_bloc.dart';
+import 'application/hospital_info/hospital_info_form_bloc/hospitalinfoform_bloc.dart';
 import 'application/hospital_info/hospital_info_watcher_bloc/hospitalinfowatcher_bloc.dart';
 import 'domain/profile/iProfile_repository.dart';
 import 'application/profile/profile_bloc/profile_bloc.dart';
@@ -42,6 +43,8 @@ GetIt $initGetIt(
       () => HospitalInfoRepository(get<FirebaseFirestore>()));
   gh.factory<HospitalinfoactorBloc>(
       () => HospitalinfoactorBloc(get<HospitalInfoRepo>()));
+  gh.factory<HospitalinfoformBloc>(
+      () => HospitalinfoformBloc(get<HospitalInfoRepo>()));
   gh.factory<HospitalinfowatcherBloc>(
       () => HospitalinfowatcherBloc(get<HospitalInfoRepo>()));
   gh.lazySingleton<IProfileRepository>(() =>

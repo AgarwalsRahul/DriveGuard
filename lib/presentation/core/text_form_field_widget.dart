@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
 class TextFormFieldWidget extends StatelessWidget {
+  final bool isEditing;
   final TextInputType keyboardType;
   final Function(String) onChanged;
   final String hintText;
+  final String initialValue;
   final Icon prefixIcon;
   final Function(String) validator;
   final bool obscureText;
   final IconButton suffixIcon;
+  final TextEditingController controller;
 
   const TextFormFieldWidget({
     Key key,
@@ -16,6 +19,9 @@ class TextFormFieldWidget extends StatelessWidget {
     this.hintText,
     this.prefixIcon,
     this.validator,
+    this.initialValue,
+    this.controller,
+    this.isEditing = false,
     this.obscureText = false,
     this.suffixIcon = null,
   }) : super(key: key);
@@ -23,6 +29,8 @@ class TextFormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      initialValue: isEditing ? initialValue : null,
       obscureText: obscureText,
       autocorrect: false,
       keyboardType: this.keyboardType,

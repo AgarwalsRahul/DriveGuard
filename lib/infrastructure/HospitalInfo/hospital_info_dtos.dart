@@ -19,13 +19,13 @@ abstract class HospitalInfoDTO implements _$HospitalInfoDTO {
   factory HospitalInfoDTO.fromJson(Map<String, dynamic> json) =>
       _$HospitalInfoDTOFromJson(json);
 
-  factory HospitalInfoDTO.fromFirestore(DocumentSnapshot doc) =>
+  factory HospitalInfoDTO.fromFirestore(QueryDocumentSnapshot doc) =>
       HospitalInfoDTO.fromJson(doc.data()).copyWith(userId: doc.id);
 
   HospitalInfo toDomain() {
     return HospitalInfo(
         userId: userId,
-        hospitalName: HospitalName(hospitalName),
+        hospitalName: HospitalName(this.hospitalName),
         address: Address(address),
         phoneNumber: PhoneNumber(phoneNumber));
   }

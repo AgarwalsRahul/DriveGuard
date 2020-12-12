@@ -1,10 +1,9 @@
-import 'package:DriveGuard/presentation/Auth/widgets/register_form.dart';
-import 'package:DriveGuard/presentation/Auth/widgets/sign_in_option_widget.dart';
+import 'widgets/register_form.dart';
+import 'widgets/sign_in_option_widget.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/auth/auth_bloc/auth_bloc.dart';
 import '../../application/auth/sign_in_form_bloc/sign_in_form_bloc.dart';
 import '../Routes/router.gr.dart';
 import 'widgets/auth_buttons.dart';

@@ -78,17 +78,22 @@ class HospitalInfoRepository implements HospitalInfoRepo {
 
     yield* userDoc.hospitalInfoCollection
         .snapshots()
-        .map((doc) => doc.docs.map(
-            (docSnap) => HospitalInfoDTO.fromFirestore(docSnap).toDomain()))
+        .map((doc) {
+          return doc.docs.map((docSnap) {
+            print(docSnap.data());
+            return HospitalInfoDTO.fromFirestore(docSnap).toDomain();
+          });
+        })
         .map((infos) => right<HospitalInfoFailure, KtList<HospitalInfo>>(
             infos.toImmutableList()))
         .onErrorReturnWith((error) {
-      if (error is PlatformException &&
-          error.message.contains('PERMISSION_DENIED')) {
-        return left(HospitalInfoFailure.insufficientPermission());
-      } else {
-        return left(HospitalInfoFailure.unexpected());
-      }
-    });
+          if (error is PlatformException &&
+              error.message.contains('PERMISSION_DENIED')) {
+            return left(HospitalInfoFailure.insufficientPermission());
+          } else {
+            print(error);
+            return left(HospitalInfoFailure.unexpected());
+          }
+        });
   }
 }

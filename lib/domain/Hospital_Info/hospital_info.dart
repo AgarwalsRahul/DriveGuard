@@ -15,6 +15,15 @@ abstract class HospitalInfo implements _$HospitalInfo {
     @required Address address,
     @required PhoneNumber phoneNumber,
   }) = _HospitalInfo;
+
+  factory HospitalInfo.empty() {
+    return HospitalInfo(
+      userId: "",
+      hospitalName: HospitalName(""),
+      address: Address(""),
+      phoneNumber: PhoneNumber(""),
+    );
+  }
   Option<ValueFailure<dynamic>> get failureOption {
     return hospitalName.failureOrUnit
         .andThen(address.failureOrUnit)

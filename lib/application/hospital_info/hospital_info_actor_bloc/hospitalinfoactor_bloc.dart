@@ -22,21 +22,13 @@ class HospitalinfoactorBloc
   Stream<HospitalinfoactorState> mapEventToState(
     HospitalinfoactorEvent event,
   ) async* {
-    yield* event.map(delete: (e) async* {
-      yield const HospitalinfoactorState.actionInProgress();
-      final failureOrUnit = await _repo.delete(e.info);
-      yield failureOrUnit.fold((f) => HospitalinfoactorState.deleteFailure(f),
-          (r) => const HospitalinfoactorState.deleteSuccess());
-    }, add: (e) async* {
-      yield const HospitalinfoactorState.actionInProgress();
-      final failureOrUnit = await _repo.add(e.info);
-      yield failureOrUnit.fold((f) => HospitalinfoactorState.failure(),
-          (r) => const HospitalinfoactorState.success());
-    }, edit: (e) async* {
-      yield const HospitalinfoactorState.actionInProgress();
-      final failureOrUnit = await _repo.edit(e.info);
-      yield failureOrUnit.fold((f) => HospitalinfoactorState.failure(),
-          (r) => const HospitalinfoactorState.success());
-    });
+    yield* event.map(
+      delete: (e) async* {
+        yield const HospitalinfoactorState.actionInProgress();
+        final failureOrUnit = await _repo.delete(e.info);
+        yield failureOrUnit.fold((f) => HospitalinfoactorState.deleteFailure(f),
+            (r) => const HospitalinfoactorState.deleteSuccess());
+      },
+    );
   }
 }

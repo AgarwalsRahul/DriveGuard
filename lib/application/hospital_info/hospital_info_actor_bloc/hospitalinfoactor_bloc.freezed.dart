@@ -19,20 +19,6 @@ class _$HospitalinfoactorEventTearOff {
       info,
     );
   }
-
-// ignore: unused_element
-  _Add add(HospitalInfo info) {
-    return _Add(
-      info,
-    );
-  }
-
-// ignore: unused_element
-  _Edit edit(HospitalInfo info) {
-    return _Edit(
-      info,
-    );
-  }
 }
 
 /// @nodoc
@@ -46,27 +32,19 @@ mixin _$HospitalinfoactorEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult delete(HospitalInfo info),
-    @required TResult add(HospitalInfo info),
-    @required TResult edit(HospitalInfo info),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult delete(HospitalInfo info),
-    TResult add(HospitalInfo info),
-    TResult edit(HospitalInfo info),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult delete(_Delete value),
-    @required TResult add(_Add value),
-    @required TResult edit(_Edit value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult delete(_Delete value),
-    TResult add(_Add value),
-    TResult edit(_Edit value),
     @required TResult orElse(),
   });
 
@@ -176,12 +154,8 @@ class _$_Delete implements _Delete {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
     @required TResult delete(HospitalInfo info),
-    @required TResult add(HospitalInfo info),
-    @required TResult edit(HospitalInfo info),
   }) {
     assert(delete != null);
-    assert(add != null);
-    assert(edit != null);
     return delete(info);
   }
 
@@ -189,8 +163,6 @@ class _$_Delete implements _Delete {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult delete(HospitalInfo info),
-    TResult add(HospitalInfo info),
-    TResult edit(HospitalInfo info),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -204,12 +176,8 @@ class _$_Delete implements _Delete {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult delete(_Delete value),
-    @required TResult add(_Add value),
-    @required TResult edit(_Edit value),
   }) {
     assert(delete != null);
-    assert(add != null);
-    assert(edit != null);
     return delete(this);
   }
 
@@ -217,8 +185,6 @@ class _$_Delete implements _Delete {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult delete(_Delete value),
-    TResult add(_Add value),
-    TResult edit(_Edit value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -239,258 +205,6 @@ abstract class _Delete implements HospitalinfoactorEvent {
 }
 
 /// @nodoc
-abstract class _$AddCopyWith<$Res>
-    implements $HospitalinfoactorEventCopyWith<$Res> {
-  factory _$AddCopyWith(_Add value, $Res Function(_Add) then) =
-      __$AddCopyWithImpl<$Res>;
-  @override
-  $Res call({HospitalInfo info});
-
-  @override
-  $HospitalInfoCopyWith<$Res> get info;
-}
-
-/// @nodoc
-class __$AddCopyWithImpl<$Res>
-    extends _$HospitalinfoactorEventCopyWithImpl<$Res>
-    implements _$AddCopyWith<$Res> {
-  __$AddCopyWithImpl(_Add _value, $Res Function(_Add) _then)
-      : super(_value, (v) => _then(v as _Add));
-
-  @override
-  _Add get _value => super._value as _Add;
-
-  @override
-  $Res call({
-    Object info = freezed,
-  }) {
-    return _then(_Add(
-      info == freezed ? _value.info : info as HospitalInfo,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_Add implements _Add {
-  const _$_Add(this.info) : assert(info != null);
-
-  @override
-  final HospitalInfo info;
-
-  @override
-  String toString() {
-    return 'HospitalinfoactorEvent.add(info: $info)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Add &&
-            (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(info);
-
-  @override
-  _$AddCopyWith<_Add> get copyWith =>
-      __$AddCopyWithImpl<_Add>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult delete(HospitalInfo info),
-    @required TResult add(HospitalInfo info),
-    @required TResult edit(HospitalInfo info),
-  }) {
-    assert(delete != null);
-    assert(add != null);
-    assert(edit != null);
-    return add(info);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult delete(HospitalInfo info),
-    TResult add(HospitalInfo info),
-    TResult edit(HospitalInfo info),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (add != null) {
-      return add(info);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult delete(_Delete value),
-    @required TResult add(_Add value),
-    @required TResult edit(_Edit value),
-  }) {
-    assert(delete != null);
-    assert(add != null);
-    assert(edit != null);
-    return add(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult delete(_Delete value),
-    TResult add(_Add value),
-    TResult edit(_Edit value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (add != null) {
-      return add(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Add implements HospitalinfoactorEvent {
-  const factory _Add(HospitalInfo info) = _$_Add;
-
-  @override
-  HospitalInfo get info;
-  @override
-  _$AddCopyWith<_Add> get copyWith;
-}
-
-/// @nodoc
-abstract class _$EditCopyWith<$Res>
-    implements $HospitalinfoactorEventCopyWith<$Res> {
-  factory _$EditCopyWith(_Edit value, $Res Function(_Edit) then) =
-      __$EditCopyWithImpl<$Res>;
-  @override
-  $Res call({HospitalInfo info});
-
-  @override
-  $HospitalInfoCopyWith<$Res> get info;
-}
-
-/// @nodoc
-class __$EditCopyWithImpl<$Res>
-    extends _$HospitalinfoactorEventCopyWithImpl<$Res>
-    implements _$EditCopyWith<$Res> {
-  __$EditCopyWithImpl(_Edit _value, $Res Function(_Edit) _then)
-      : super(_value, (v) => _then(v as _Edit));
-
-  @override
-  _Edit get _value => super._value as _Edit;
-
-  @override
-  $Res call({
-    Object info = freezed,
-  }) {
-    return _then(_Edit(
-      info == freezed ? _value.info : info as HospitalInfo,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_Edit implements _Edit {
-  const _$_Edit(this.info) : assert(info != null);
-
-  @override
-  final HospitalInfo info;
-
-  @override
-  String toString() {
-    return 'HospitalinfoactorEvent.edit(info: $info)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _Edit &&
-            (identical(other.info, info) ||
-                const DeepCollectionEquality().equals(other.info, info)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(info);
-
-  @override
-  _$EditCopyWith<_Edit> get copyWith =>
-      __$EditCopyWithImpl<_Edit>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult delete(HospitalInfo info),
-    @required TResult add(HospitalInfo info),
-    @required TResult edit(HospitalInfo info),
-  }) {
-    assert(delete != null);
-    assert(add != null);
-    assert(edit != null);
-    return edit(info);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult delete(HospitalInfo info),
-    TResult add(HospitalInfo info),
-    TResult edit(HospitalInfo info),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (edit != null) {
-      return edit(info);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult delete(_Delete value),
-    @required TResult add(_Add value),
-    @required TResult edit(_Edit value),
-  }) {
-    assert(delete != null);
-    assert(add != null);
-    assert(edit != null);
-    return edit(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult delete(_Delete value),
-    TResult add(_Add value),
-    TResult edit(_Edit value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (edit != null) {
-      return edit(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Edit implements HospitalinfoactorEvent {
-  const factory _Edit(HospitalInfo info) = _$_Edit;
-
-  @override
-  HospitalInfo get info;
-  @override
-  _$EditCopyWith<_Edit> get copyWith;
-}
-
-/// @nodoc
 class _$HospitalinfoactorStateTearOff {
   const _$HospitalinfoactorStateTearOff();
 
@@ -502,16 +216,6 @@ class _$HospitalinfoactorStateTearOff {
 // ignore: unused_element
   _ActionInProgress actionInProgress() {
     return const _ActionInProgress();
-  }
-
-// ignore: unused_element
-  _Success success() {
-    return const _Success();
-  }
-
-// ignore: unused_element
-  _Failure failure() {
-    return const _Failure();
   }
 
 // ignore: unused_element
@@ -537,8 +241,6 @@ mixin _$HospitalinfoactorState {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult actionInProgress(),
-    @required TResult success(),
-    @required TResult failure(),
     @required TResult deleteSuccess(),
     @required TResult deleteFailure(HospitalInfoFailure deleteFailure),
   });
@@ -546,8 +248,6 @@ mixin _$HospitalinfoactorState {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult actionInProgress(),
-    TResult success(),
-    TResult failure(),
     TResult deleteSuccess(),
     TResult deleteFailure(HospitalInfoFailure deleteFailure),
     @required TResult orElse(),
@@ -556,8 +256,6 @@ mixin _$HospitalinfoactorState {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult success(_Success value),
-    @required TResult failure(_Failure value),
     @required TResult deleteSuccess(_DeleteSuccess value),
     @required TResult deleteFailure(_DeleteFailure value),
   });
@@ -565,8 +263,6 @@ mixin _$HospitalinfoactorState {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult actionInProgress(_ActionInProgress value),
-    TResult success(_Success value),
-    TResult failure(_Failure value),
     TResult deleteSuccess(_DeleteSuccess value),
     TResult deleteFailure(_DeleteFailure value),
     @required TResult orElse(),
@@ -629,15 +325,11 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult actionInProgress(),
-    @required TResult success(),
-    @required TResult failure(),
     @required TResult deleteSuccess(),
     @required TResult deleteFailure(HospitalInfoFailure deleteFailure),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
     assert(deleteSuccess != null);
     assert(deleteFailure != null);
     return initial();
@@ -648,8 +340,6 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult actionInProgress(),
-    TResult success(),
-    TResult failure(),
     TResult deleteSuccess(),
     TResult deleteFailure(HospitalInfoFailure deleteFailure),
     @required TResult orElse(),
@@ -666,15 +356,11 @@ class _$_Initial implements _Initial {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult success(_Success value),
-    @required TResult failure(_Failure value),
     @required TResult deleteSuccess(_DeleteSuccess value),
     @required TResult deleteFailure(_DeleteFailure value),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
     assert(deleteSuccess != null);
     assert(deleteFailure != null);
     return initial(this);
@@ -685,8 +371,6 @@ class _$_Initial implements _Initial {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult actionInProgress(_ActionInProgress value),
-    TResult success(_Success value),
-    TResult failure(_Failure value),
     TResult deleteSuccess(_DeleteSuccess value),
     TResult deleteFailure(_DeleteFailure value),
     @required TResult orElse(),
@@ -744,15 +428,11 @@ class _$_ActionInProgress implements _ActionInProgress {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult actionInProgress(),
-    @required TResult success(),
-    @required TResult failure(),
     @required TResult deleteSuccess(),
     @required TResult deleteFailure(HospitalInfoFailure deleteFailure),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
     assert(deleteSuccess != null);
     assert(deleteFailure != null);
     return actionInProgress();
@@ -763,8 +443,6 @@ class _$_ActionInProgress implements _ActionInProgress {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult actionInProgress(),
-    TResult success(),
-    TResult failure(),
     TResult deleteSuccess(),
     TResult deleteFailure(HospitalInfoFailure deleteFailure),
     @required TResult orElse(),
@@ -781,15 +459,11 @@ class _$_ActionInProgress implements _ActionInProgress {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult success(_Success value),
-    @required TResult failure(_Failure value),
     @required TResult deleteSuccess(_DeleteSuccess value),
     @required TResult deleteFailure(_DeleteFailure value),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
     assert(deleteSuccess != null);
     assert(deleteFailure != null);
     return actionInProgress(this);
@@ -800,8 +474,6 @@ class _$_ActionInProgress implements _ActionInProgress {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult actionInProgress(_ActionInProgress value),
-    TResult success(_Success value),
-    TResult failure(_Failure value),
     TResult deleteSuccess(_DeleteSuccess value),
     TResult deleteFailure(_DeleteFailure value),
     @required TResult orElse(),
@@ -816,232 +488,6 @@ class _$_ActionInProgress implements _ActionInProgress {
 
 abstract class _ActionInProgress implements HospitalinfoactorState {
   const factory _ActionInProgress() = _$_ActionInProgress;
-}
-
-/// @nodoc
-abstract class _$SuccessCopyWith<$Res> {
-  factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
-      __$SuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$SuccessCopyWithImpl<$Res>
-    extends _$HospitalinfoactorStateCopyWithImpl<$Res>
-    implements _$SuccessCopyWith<$Res> {
-  __$SuccessCopyWithImpl(_Success _value, $Res Function(_Success) _then)
-      : super(_value, (v) => _then(v as _Success));
-
-  @override
-  _Success get _value => super._value as _Success;
-}
-
-/// @nodoc
-class _$_Success implements _Success {
-  const _$_Success();
-
-  @override
-  String toString() {
-    return 'HospitalinfoactorState.success()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Success);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(),
-    @required TResult success(),
-    @required TResult failure(),
-    @required TResult deleteSuccess(),
-    @required TResult deleteFailure(HospitalInfoFailure deleteFailure),
-  }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
-    assert(deleteSuccess != null);
-    assert(deleteFailure != null);
-    return success();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(),
-    TResult success(),
-    TResult failure(),
-    TResult deleteSuccess(),
-    TResult deleteFailure(HospitalInfoFailure deleteFailure),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (success != null) {
-      return success();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult success(_Success value),
-    @required TResult failure(_Failure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-  }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
-    assert(deleteSuccess != null);
-    assert(deleteFailure != null);
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(_ActionInProgress value),
-    TResult success(_Success value),
-    TResult failure(_Failure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Success implements HospitalinfoactorState {
-  const factory _Success() = _$_Success;
-}
-
-/// @nodoc
-abstract class _$FailureCopyWith<$Res> {
-  factory _$FailureCopyWith(_Failure value, $Res Function(_Failure) then) =
-      __$FailureCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$FailureCopyWithImpl<$Res>
-    extends _$HospitalinfoactorStateCopyWithImpl<$Res>
-    implements _$FailureCopyWith<$Res> {
-  __$FailureCopyWithImpl(_Failure _value, $Res Function(_Failure) _then)
-      : super(_value, (v) => _then(v as _Failure));
-
-  @override
-  _Failure get _value => super._value as _Failure;
-}
-
-/// @nodoc
-class _$_Failure implements _Failure {
-  const _$_Failure();
-
-  @override
-  String toString() {
-    return 'HospitalinfoactorState.failure()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Failure);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult actionInProgress(),
-    @required TResult success(),
-    @required TResult failure(),
-    @required TResult deleteSuccess(),
-    @required TResult deleteFailure(HospitalInfoFailure deleteFailure),
-  }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
-    assert(deleteSuccess != null);
-    assert(deleteFailure != null);
-    return failure();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult actionInProgress(),
-    TResult success(),
-    TResult failure(),
-    TResult deleteSuccess(),
-    TResult deleteFailure(HospitalInfoFailure deleteFailure),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (failure != null) {
-      return failure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(_Initial value),
-    @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult success(_Success value),
-    @required TResult failure(_Failure value),
-    @required TResult deleteSuccess(_DeleteSuccess value),
-    @required TResult deleteFailure(_DeleteFailure value),
-  }) {
-    assert(initial != null);
-    assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
-    assert(deleteSuccess != null);
-    assert(deleteFailure != null);
-    return failure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(_Initial value),
-    TResult actionInProgress(_ActionInProgress value),
-    TResult success(_Success value),
-    TResult failure(_Failure value),
-    TResult deleteSuccess(_DeleteSuccess value),
-    TResult deleteFailure(_DeleteFailure value),
-    @required TResult orElse(),
-  }) {
-    assert(orElse != null);
-    if (failure != null) {
-      return failure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Failure implements HospitalinfoactorState {
-  const factory _Failure() = _$_Failure;
 }
 
 /// @nodoc
@@ -1085,15 +531,11 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult actionInProgress(),
-    @required TResult success(),
-    @required TResult failure(),
     @required TResult deleteSuccess(),
     @required TResult deleteFailure(HospitalInfoFailure deleteFailure),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
     assert(deleteSuccess != null);
     assert(deleteFailure != null);
     return deleteSuccess();
@@ -1104,8 +546,6 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult actionInProgress(),
-    TResult success(),
-    TResult failure(),
     TResult deleteSuccess(),
     TResult deleteFailure(HospitalInfoFailure deleteFailure),
     @required TResult orElse(),
@@ -1122,15 +562,11 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult success(_Success value),
-    @required TResult failure(_Failure value),
     @required TResult deleteSuccess(_DeleteSuccess value),
     @required TResult deleteFailure(_DeleteFailure value),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
     assert(deleteSuccess != null);
     assert(deleteFailure != null);
     return deleteSuccess(this);
@@ -1141,8 +577,6 @@ class _$_DeleteSuccess implements _DeleteSuccess {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult actionInProgress(_ActionInProgress value),
-    TResult success(_Success value),
-    TResult failure(_Failure value),
     TResult deleteSuccess(_DeleteSuccess value),
     TResult deleteFailure(_DeleteFailure value),
     @required TResult orElse(),
@@ -1236,15 +670,11 @@ class _$_DeleteFailure implements _DeleteFailure {
   TResult when<TResult extends Object>({
     @required TResult initial(),
     @required TResult actionInProgress(),
-    @required TResult success(),
-    @required TResult failure(),
     @required TResult deleteSuccess(),
     @required TResult deleteFailure(HospitalInfoFailure deleteFailure),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
     assert(deleteSuccess != null);
     assert(deleteFailure != null);
     return deleteFailure(this.deleteFailure);
@@ -1255,8 +685,6 @@ class _$_DeleteFailure implements _DeleteFailure {
   TResult maybeWhen<TResult extends Object>({
     TResult initial(),
     TResult actionInProgress(),
-    TResult success(),
-    TResult failure(),
     TResult deleteSuccess(),
     TResult deleteFailure(HospitalInfoFailure deleteFailure),
     @required TResult orElse(),
@@ -1273,15 +701,11 @@ class _$_DeleteFailure implements _DeleteFailure {
   TResult map<TResult extends Object>({
     @required TResult initial(_Initial value),
     @required TResult actionInProgress(_ActionInProgress value),
-    @required TResult success(_Success value),
-    @required TResult failure(_Failure value),
     @required TResult deleteSuccess(_DeleteSuccess value),
     @required TResult deleteFailure(_DeleteFailure value),
   }) {
     assert(initial != null);
     assert(actionInProgress != null);
-    assert(success != null);
-    assert(failure != null);
     assert(deleteSuccess != null);
     assert(deleteFailure != null);
     return deleteFailure(this);
@@ -1292,8 +716,6 @@ class _$_DeleteFailure implements _DeleteFailure {
   TResult maybeMap<TResult extends Object>({
     TResult initial(_Initial value),
     TResult actionInProgress(_ActionInProgress value),
-    TResult success(_Success value),
-    TResult failure(_Failure value),
     TResult deleteSuccess(_DeleteSuccess value),
     TResult deleteFailure(_DeleteFailure value),
     @required TResult orElse(),

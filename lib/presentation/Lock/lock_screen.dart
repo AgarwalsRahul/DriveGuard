@@ -1,8 +1,7 @@
-import 'package:DriveGuard/presentation/Lock/widgets/location.dart';
-import 'package:DriveGuard/presentation/Lock/widgets/temperature_widget.dart';
-import 'package:auto_route/auto_route.dart';
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets/location.dart';
+import 'widgets/temperature_widget.dart';
 
 class LockScreen extends StatelessWidget {
   @override
