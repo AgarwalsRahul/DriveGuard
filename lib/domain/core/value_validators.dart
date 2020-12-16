@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'failures.dart';
 
 Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
-  if (input.isNotEmpty) {
+  if (input.isNotEmpty || input.length > 0) {
     return right(input);
   } else {
     return left(ValueFailure.empty(failedVaue: input));

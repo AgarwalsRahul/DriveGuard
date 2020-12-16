@@ -14,12 +14,13 @@ abstract class ProfileState with _$ProfileState {
 
   factory ProfileState.initial() {
     return ProfileState(
-        isImageLoading: false,
-        isLoading: false,
-        profile: User.empty(),
-        isSaving: false,
-        showErrorMessages: false,
-        isEditing: false,
-        profileFailureOrSuccesOption: none());
+      isImageLoading: false,
+      isLoading: false,
+      profile: User.empty(),
+      isSaving: false,
+      showErrorMessages: false,
+      isEditing: false,
+      profileFailureOrSuccesOption: none(),
+    );
   }
 }

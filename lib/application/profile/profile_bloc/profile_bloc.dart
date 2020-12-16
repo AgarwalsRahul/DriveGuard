@@ -79,9 +79,9 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         );
         final imagePath = await _repository.imagePath();
         yield imagePath.fold(
-          (_) => state.copyWith(
+          (f) => state.copyWith(
             isImageLoading: false,
-            // profile: state.profile.copyWith(imagePath: ImagePath('')),
+            // profile: state.profile.copyWith(photoUrl: PhotoUrl('')),
             profileFailureOrSuccesOption: none(),
           ),
           (path) => state.copyWith(

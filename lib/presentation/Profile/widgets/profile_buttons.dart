@@ -19,9 +19,11 @@ class ProfileButtons extends StatelessWidget {
       state.profileFailureOrSuccesOption.fold(
           () => null,
           (either) => either.fold((f) => flushBar(f, context), (_) {
+                print(context.read<AuthBloc>().state);
                 context
                     .read<AuthBloc>()
                     .add(const AuthEvent.checkedAuthStatus());
+                print("Hii2");
               }));
     }, builder: (context, state) {
       return Padding(

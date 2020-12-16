@@ -80,7 +80,6 @@ class HospitalInfoRepository implements HospitalInfoRepo {
         .snapshots()
         .map((doc) {
           return doc.docs.map((docSnap) {
-            print(docSnap.data());
             return HospitalInfoDTO.fromFirestore(docSnap).toDomain();
           });
         })
@@ -91,7 +90,6 @@ class HospitalInfoRepository implements HospitalInfoRepo {
               error.message.contains('PERMISSION_DENIED')) {
             return left(HospitalInfoFailure.insufficientPermission());
           } else {
-            print(error);
             return left(HospitalInfoFailure.unexpected());
           }
         });

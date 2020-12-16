@@ -24,13 +24,18 @@ class ProfileRepository implements IProfileRepository {
   @override
   Future<Either<ProfileFailure, Unit>> create(User profile) async {
     try {
-      final userDoc = await _firestore.userDocument();
-      final profileDto = ProfileDTO.fromDomain(profile);
-      final user = await getUser();
-      profileDto.copyWith(id: user.id);
-      await userDoc.set({});
-      await userDoc.profileCollection.doc(user.id).set(profileDto.toJson());
-      return right(unit);
+      if (profile.photoUrl.isValid()) {
+        final userDoc = await _firestore.userDocument();
+        final profileDto = ProfileDTO.fromDomain(profile);
+        final user = await getUser();
+        profileDto.copyWith(id: user.id);
+        await userDoc.set({});
+        await userDoc.profileCollection.doc(user.id).set(profileDto.toJson());
+        return right(unit);
+      } else {
+        print("image not selected");
+        return left(const ProfileFailure.imageNotSelected());
+      }
     } on PlatformException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const ProfileFailure.insufficientPermission());

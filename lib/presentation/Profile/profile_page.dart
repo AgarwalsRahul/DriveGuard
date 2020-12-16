@@ -1,5 +1,6 @@
 import 'package:DriveGuard/application/auth/auth_bloc/auth_bloc.dart';
 import 'package:DriveGuard/application/profile/profile_bloc/profile_bloc.dart';
+import 'package:DriveGuard/presentation/Profile/widgets/flushbar_widget.dart';
 import 'package:DriveGuard/presentation/Profile/widgets/profile_buttons.dart';
 import 'package:DriveGuard/presentation/Profile/widgets/profile_form.dart';
 import 'package:DriveGuard/presentation/Profile/widgets/profile_image_Avator.dart';
@@ -17,15 +18,19 @@ class ProfilePage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return BlocProvider(
       create: (context) => getIt<ProfileBloc>(),
-      child: BlocListener<AuthBloc, AuthState>(
-          listener: (context, state) {
-            state.maybeMap(
-                orElse: () {},
-                authenticated: (_) =>
-                    ExtendedNavigator.of(context).replace(Routes.homePage),
-                unauthenticated: (_) =>
-                    ExtendedNavigator.of(context).replace(Routes.signInPage));
-          },
+      child: MultiBlocListener(
+          listeners: [
+            BlocListener<AuthBloc, AuthState>(
+              listener: (context, state) {
+                state.maybeMap(
+                    orElse: () {},
+                    authenticated: (_) =>
+                        ExtendedNavigator.of(context).replace(Routes.homePage),
+                    unauthenticated: (_) => ExtendedNavigator.of(context)
+                        .replace(Routes.signInPage));
+              },
+            ),
+          ],
           child: Scaffold(
             body: Stack(
               children: [

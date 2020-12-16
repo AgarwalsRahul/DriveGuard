@@ -19,7 +19,14 @@ abstract class User implements _$User {
   }) = _User;
 
   factory User.empty() {
-    return User(id: "", emailAddress: EmailAddress(""), photoUrl: PhotoUrl(""));
+    return User(
+        id: "",
+        emailAddress: EmailAddress(""),
+        photoUrl: PhotoUrl(""),
+        address: Address(""),
+        phoneNumber: PhoneNumber(""),
+        vehcileNumber: VehcileNumber(""),
+        userName: Name(""));
   }
   Option<ValueFailure<dynamic>> get failureOption {
     return userName.failureOrUnit
@@ -27,6 +34,7 @@ abstract class User implements _$User {
         .andThen(phoneNumber.failureOrUnit)
         .andThen(emailAddress.failureOrUnit)
         .andThen(vehcileNumber.failureOrUnit)
+        // .andThen(photoUrl.failureOrUnit)
         .fold(
           (f) => some(f),
           (_) => none(),

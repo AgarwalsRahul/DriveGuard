@@ -5,10 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class RegisterForm extends StatelessWidget {
   const RegisterForm({
     Key key,
-    @required this.ctx,
   }) : super(key: key);
-
-  final BuildContext ctx;
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +16,21 @@ class RegisterForm extends StatelessWidget {
           top: MediaQuery.of(context).size.height * 0.010),
       child: Container(
         alignment: Alignment.center,
-        child: Form(
-          autovalidateMode: ctx.read<SignInFormBloc>().state.showErrorMessages
-              ? AutovalidateMode.onUserInteraction
-              : AutovalidateMode.disabled,
-          child: Column(
-            children: [
-              _buildNameField(context),
-              _buildMailField(context),
-              _buildPasswordField(context),
-            ],
-          ),
+        child: BlocBuilder<SignInFormBloc, SignInFormState>(
+          builder: (context, state) {
+            return Form(
+              autovalidateMode: state.showErrorMessages
+                  ? AutovalidateMode.onUserInteraction
+                  : AutovalidateMode.disabled,
+              child: Column(
+                children: [
+                  _buildNameField(context),
+                  _buildMailField(context),
+                  _buildPasswordField(context),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );
@@ -56,12 +57,12 @@ class RegisterForm extends StatelessWidget {
         autocorrect: false,
         keyboardType: TextInputType.emailAddress,
         onChanged: (value) {
-          ctx.read<SignInFormBloc>().add(
+          context.read<SignInFormBloc>().add(
                 SignInFormEvent.nameChanged(value),
               );
         },
         validator: (_) {
-          return ctx.read<SignInFormBloc>().state.name.value.fold(
+          return context.read<SignInFormBloc>().state.name.value.fold(
               (f) => f.maybeMap(
                   orElse: () => null, empty: (_) => 'Name cannot be empty'),
               (_) => null);
@@ -91,12 +92,12 @@ class RegisterForm extends StatelessWidget {
         autocorrect: false,
         keyboardType: TextInputType.emailAddress,
         onChanged: (value) {
-          ctx.read<SignInFormBloc>().add(
+          context.read<SignInFormBloc>().add(
                 SignInFormEvent.emailChanged(value),
               );
         },
         validator: (_) {
-          return ctx.read<SignInFormBloc>().state.emailAddress.value.fold(
+          return context.read<SignInFormBloc>().state.emailAddress.value.fold(
               (f) => f.maybeMap(
                   orElse: () => null, invalidEmail: (_) => 'Invalid Email'),
               (_) => null);
@@ -130,12 +131,12 @@ class RegisterForm extends StatelessWidget {
       autocorrect: false,
       obscureText: true,
       onChanged: (value) {
-        ctx.read<SignInFormBloc>().add(
+        context.read<SignInFormBloc>().add(
               SignInFormEvent.passwordChanged(value),
             );
       },
       validator: (_) {
-        return ctx.read<SignInFormBloc>().state.password.value.fold(
+        return context.read<SignInFormBloc>().state.password.value.fold(
             (f) => f.maybeMap(
                 orElse: () => null, shortPassword: (_) => 'Short Password'),
             (_) => null);
