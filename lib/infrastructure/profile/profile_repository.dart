@@ -85,11 +85,11 @@ class ProfileRepository implements IProfileRepository {
   Stream<Either<ProfileFailure, User>> profileView() async* {
     final userDoc = await _firestore.userDocument();
     final User user = await getUser();
-    yield* userDoc.profileCollection
-        .doc(user.id)
-        .snapshots()
-        .map((doc) => right(ProfileDTO.fromFirestore(doc).toDomain()))
-        .onErrorReturnWith((error) {
+    yield* userDoc.profileCollection.doc(user.id).snapshots().map((doc) {
+      print(doc.data());
+      return right<ProfileFailure, User>(
+          ProfileDTO.fromFirestore(doc).toDomain());
+    }).onErrorReturnWith((error) {
       if (error is PlatformException &&
           error.message.contains('PERMISSION_DENIED')) {
         return left(ProfileFailure.insufficientPermission());

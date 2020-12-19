@@ -95,7 +95,15 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         yield e.profile.fold(
             () => state,
             (initialProfile) => state.copyWith(
-                  profile: initialProfile,
+                  profile: state.profile.copyWith(
+                    userName: initialProfile.userName,
+                    phoneNumber: initialProfile.phoneNumber,
+                    photoUrl: initialProfile.photoUrl,
+                    address: initialProfile.address,
+                    vehcileNumber: initialProfile.vehcileNumber,
+                    emailAddress: initialProfile.emailAddress,
+                    id: initialProfile.id,
+                  ),
                   isEditing: true,
                 ));
       },

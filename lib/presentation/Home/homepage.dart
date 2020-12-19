@@ -1,10 +1,10 @@
-import 'package:DriveGuard/presentation/Hospital_Info/hospital_info.dart';
-import 'package:DriveGuard/presentation/Lock/lock_screen.dart';
-import 'package:DriveGuard/presentation/Profile/profile_page.dart';
-import 'package:DriveGuard/presentation/SOS_info/sos_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../Hospital_Info/hospital_info.dart';
+import '../Lock/lock_screen.dart';
+import '../Profile/profile_view/profile_view_page.dart';
+import '../SOS_info/sos_info.dart';
 import 'home.dart';
 
 class HomePage extends StatefulWidget {
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
           LockScreen(),
           SOSInfo(),
           HospitalInfoPage(),
-          ProfilePage(),
+          ProfileViewPage(),
         ],
       ),
     );

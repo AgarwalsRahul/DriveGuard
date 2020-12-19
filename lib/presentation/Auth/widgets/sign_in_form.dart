@@ -1,17 +1,15 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:DriveGuard/application/auth/auth_bloc/auth_bloc.dart';
-import 'package:DriveGuard/application/auth/sign_in_form_bloc/sign_in_form_bloc.dart';
-import 'package:DriveGuard/presentation/Auth/widgets/flushbar_widget.dart';
-import 'package:DriveGuard/presentation/Routes/router.gr.dart';
-import 'package:DriveGuard/presentation/core/text_form_field_widget.dart';
-
+import '../../../application/auth/auth_bloc/auth_bloc.dart';
+import '../../../application/auth/sign_in_form_bloc/sign_in_form_bloc.dart';
+import '../../Routes/router.gr.dart';
+import '../../core/text_form_field_widget.dart';
 import 'auth_buttons.dart';
 import 'container_widget.dart';
 import 'drive_guard_image.dart';
+import 'flushbar_widget.dart';
 import 'heading_widget.dart';
 import 'sign_in_option_widget.dart';
 

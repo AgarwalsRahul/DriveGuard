@@ -13,7 +13,7 @@ import '../../splash.dart';
 import '../Auth/register_page.dart';
 import '../Auth/sign_in_page.dart';
 import '../Home/homepage.dart';
-import '../Profile/profile_page.dart';
+import '../Profile/profile_form/profile_page.dart';
 
 class Routes {
   static const String splashPage = '/';

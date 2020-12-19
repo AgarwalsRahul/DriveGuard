@@ -1,16 +1,14 @@
-import 'package:DriveGuard/application/auth/auth_bloc/auth_bloc.dart';
-import 'package:DriveGuard/application/profile/profile_bloc/profile_bloc.dart';
-import 'package:DriveGuard/presentation/Profile/widgets/flushbar_widget.dart';
-import 'package:DriveGuard/presentation/Profile/widgets/profile_buttons.dart';
-import 'package:DriveGuard/presentation/Profile/widgets/profile_form.dart';
-import 'package:DriveGuard/presentation/Profile/widgets/profile_image_Avator.dart';
-import 'package:DriveGuard/presentation/Routes/router.gr.dart';
-import 'package:DriveGuard/presentation/SOS_info/widgets/buttons.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../injection.dart';
+import '../../../application/auth/auth_bloc/auth_bloc.dart';
+import '../../../application/profile/profile_bloc/profile_bloc.dart';
+import '../../../injection.dart';
+import '../../Routes/router.gr.dart';
+import 'widgets/profile_buttons.dart';
+import 'widgets/profile_form.dart';
+import 'widgets/profile_image_Avator.dart';
 
 class ProfilePage extends StatelessWidget {
   @override

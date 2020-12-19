@@ -7,6 +7,7 @@ part of 'hospital_info_failure.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// ignore: unused_element
 T _$identity<T>(T value) => value;
 
 /// @nodoc

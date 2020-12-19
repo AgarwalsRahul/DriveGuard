@@ -23,7 +23,7 @@ class TextFormFieldWidget extends StatelessWidget {
     this.controller,
     this.isEditing = false,
     this.obscureText = false,
-    this.suffixIcon = null,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override

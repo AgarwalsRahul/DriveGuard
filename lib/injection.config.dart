@@ -23,6 +23,7 @@ import 'application/hospital_info/hospital_info_watcher_bloc/hospitalinfowatcher
 import 'domain/profile/iProfile_repository.dart';
 import 'application/profile/profile_bloc/profile_bloc.dart';
 import 'infrastructure/profile/profile_repository.dart';
+import 'application/profile/profile_watcher_bloc/profilewatcher_bloc.dart';
 import 'application/auth/sign_in_form_bloc/sign_in_form_bloc.dart';
 
 /// adds generated dependencies
@@ -50,6 +51,8 @@ GetIt $initGetIt(
   gh.lazySingleton<IProfileRepository>(() =>
       ProfileRepository(get<FirebaseFirestore>(), get<FirebaseStorage>()));
   gh.factory<ProfileBloc>(() => ProfileBloc(get<IProfileRepository>()));
+  gh.factory<ProfilewatcherBloc>(
+      () => ProfilewatcherBloc(get<IProfileRepository>()));
   gh.lazySingleton<AuthFacade>(
       () => FirebaseAuthFacade(get<FirebaseAuth>(), get<GoogleSignIn>()));
   gh.factory<SignInFormBloc>(() => SignInFormBloc(get<AuthFacade>()));

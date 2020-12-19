@@ -93,20 +93,6 @@ class HospitalInfoPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                // Buttons(
-                                //   onPressed: () {
-
-                                //   },
-                                //   text: "Edit",
-                                //   icon: Icon(
-                                //     Icons.edit,
-                                //     size: 14,
-                                //     color: Theme.of(context).accentColor,
-                                //   ),
-                                // ),
-                                // SizedBox(
-                                //   width: 20.0,
-                                // ),
                                 Buttons(
                                   onPressed: () {
                                     showModalBottomSheet(

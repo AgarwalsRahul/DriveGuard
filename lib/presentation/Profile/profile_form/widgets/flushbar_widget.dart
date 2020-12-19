@@ -1,7 +1,6 @@
+import 'package:DriveGuard/domain/profile/profile_failure.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
-
-import '../../../domain/profile/profile_failure.dart';
 
 Flushbar flushBar(ProfileFailure failure, BuildContext ctx) {
   return Flushbar(

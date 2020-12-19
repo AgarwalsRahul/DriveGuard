@@ -31,6 +31,7 @@ class HospitalInfoCard extends StatelessWidget {
           size: 30.0,
         ),
       ),
+      // ignore: missing_return
       confirmDismiss: (_) {
         final bloc = context.read<HospitalinfoactorBloc>();
         _showDeleteDialog(context, bloc);

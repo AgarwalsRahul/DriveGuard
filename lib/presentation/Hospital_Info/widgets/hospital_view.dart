@@ -17,43 +17,41 @@ class HospitalView extends StatelessWidget {
             height: size.height * 0.585,
             color: Colors.transparent,
             alignment: Alignment.center,
-            child: state.map(
-                initial: (_) {},
-                loading: (_) {
-                  return SpinKitThreeBounce(
-                    color: Theme.of(context).accentColor,
-                  );
-                },
-                loadSuccess: (state) {
-                  if (state.infos.size <= 0) {
-                    return Center(
-                      child: Text(
-                        "No Recommended Hospitals",
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.headline2,
+            child: state.map(initial: (_) {
+              return Container();
+            }, loading: (_) {
+              return SpinKitThreeBounce(
+                color: Theme.of(context).accentColor,
+              );
+            }, loadSuccess: (state) {
+              if (state.infos.size <= 0) {
+                return Center(
+                  child: Text(
+                    "No Recommended Hospitals",
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline2,
+                  ),
+                );
+              }
+              return ListView.builder(
+                  itemCount: state.infos.size,
+                  itemBuilder: (context, i) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: HospitalInfoCard(
+                        size: size,
+                        info: state.infos[i],
                       ),
                     );
-                  }
-                  return ListView.builder(
-                      itemCount: state.infos.size,
-                      itemBuilder: (context, i) {
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: HospitalInfoCard(
-                            size: size,
-                            info: state.infos[i],
-                          ),
-                        );
-                      });
-                },
-                loadFailure: (f) {
-                  return f.failure.maybeMap(
-                      orElse: () {},
-                      insufficientPermission: (_) =>
-                          Text("Insufficient Permission ❗"),
-                      unexpected: (_) => Text("Unexpected Error 😱"),
-                      unableToFetch: (_) => Text("Unable To Fetch ❌"));
-                })
+                  });
+            }, loadFailure: (f) {
+              return f.failure.maybeMap(
+                  orElse: null,
+                  insufficientPermission: (_) =>
+                      Text("Insufficient Permission ❗"),
+                  unexpected: (_) => Text("Unexpected Error 😱"),
+                  unableToFetch: (_) => Text("Unable To Fetch ❌"));
+            })
             // color: Theme.of(context).accentColor,
             );
       },

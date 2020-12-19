@@ -6,6 +6,7 @@ part of 'profile_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+// ignore: non_constant_identifier_names
 _$_ProfileDTO _$_$_ProfileDTOFromJson(Map<String, dynamic> json) {
   return _$_ProfileDTO(
     id: json['id'] as String,
@@ -18,6 +19,7 @@ _$_ProfileDTO _$_$_ProfileDTOFromJson(Map<String, dynamic> json) {
   );
 }
 
+// ignore: non_constant_identifier_names
 Map<String, dynamic> _$_$_ProfileDTOToJson(_$_ProfileDTO instance) =>
     <String, dynamic>{
       'id': instance.id,
